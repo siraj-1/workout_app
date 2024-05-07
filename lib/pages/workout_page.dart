@@ -6,7 +6,7 @@ import 'package:workout_app/data/work_out_data.dart';
 class Workoutpage extends StatefulWidget {
   final String workoutName;
 
-  Workoutpage({super.key, required this.workoutName});
+  const Workoutpage({super.key, required this.workoutName});
 
   @override
   State<Workoutpage> createState() => _WorkoutpageState();
@@ -34,7 +34,7 @@ class _WorkoutpageState extends State<Workoutpage> {
     showDialog(
         context: context,
         builder: (context) => AlertDialog(
-              title: Text('Add a new exercise'),
+              title: const Text('Add a new exercise'),
               content: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -65,13 +65,13 @@ class _WorkoutpageState extends State<Workoutpage> {
                 // save button
                 MaterialButton(
                   onPressed: save,
-                  child: Text('save'),
+                  child: const Text('save'),
                 ),
 
                 // cancel button
                 MaterialButton(
                   onPressed: cansel,
-                  child: Text('cancel'),
+                  child: const Text('cancel'),
                 )
               ],
             ));
@@ -79,19 +79,20 @@ class _WorkoutpageState extends State<Workoutpage> {
 
   //save workout
   void save() {
-    //get exercise name for the text controller
-    String newExerciseName = exerciseNameController.text;
-    String wieght = wieghtController.text;
-    String sets = setsController.text;
-    String reps = repsController.text;
+    // u dont need to do like this
+    // //get exercise name for the text controller
+    // String newExerciseName = exerciseNameController.text;
+    // String wieght = wieghtController.text;
+    // String sets = setsController.text;
+    // String reps = repsController.text;
 
     // add exercise to the workout list
     Provider.of<WorkoutData>(context, listen: false).addExercies(
       widget.workoutName,
-      newExerciseName,
-      wieght,
-      reps,
-      sets,
+      exerciseNameController.text,
+      wieghtController.text,
+      setsController.text,
+      repsController.text,
     );
     // to pop out after save
     Navigator.pop(context);

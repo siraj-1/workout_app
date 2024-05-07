@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:workout_app/Model/Workout.dart';
 import 'package:workout_app/Model/exercies.dart';
@@ -53,10 +55,10 @@ class WorkoutData extends ChangeNotifier {
   }
 
   // add an exercies to a workout
-  void addExercies(String WorkoutName, String exerciseName, String weight,
+  void addExercies(String workoutName, String exerciseName, String weight,
       String reps, String sets) {
     //find the relevant workout
-    Workout relaventWorkout = getRelaventWorkout(WorkoutName);
+    Workout relaventWorkout = getRelaventWorkout(workoutName);
 
     relaventWorkout.exercise.add(
         Exercise(name: exerciseName, weight: weight, reps: reps, sets: sets));
@@ -74,7 +76,7 @@ class WorkoutData extends ChangeNotifier {
     // check off boolean to show the user completed the exercise
     // relaventExercies.isCompleted == !relaventExercies.isCompleted;  <===  `this was somthing u fixed your own habibi`
     relaventExercies.isCompleted = !relaventExercies.isCompleted;
-    print('tapped');
+    log('tapped');
     notifyListeners();
 
     // save to database
@@ -84,7 +86,7 @@ class WorkoutData extends ChangeNotifier {
   // return relavent workout object , given  a workout name
   Workout getRelaventWorkout(String workoutName) {
     Workout relaventWorkout =
-        workoutList.firstWhere((Workout) => Workout.name == workoutName);
+        workoutList.firstWhere((workout) => workout.name == workoutName);
 
     return relaventWorkout;
   }

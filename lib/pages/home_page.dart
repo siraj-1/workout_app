@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 import 'package:workout_app/data/work_out_data.dart';
 import 'package:workout_app/pages/workout_page.dart';
@@ -25,7 +24,7 @@ class _HomePageState extends State<HomePage> {
     showDialog(
         context: context,
         builder: (context) => AlertDialog(
-              title: Text("Create new workout "),
+              title: const Text("Create new workout "),
               content: TextField(
                 controller: newWorkoutNameControler,
               ),
@@ -33,13 +32,13 @@ class _HomePageState extends State<HomePage> {
                 // save button
                 MaterialButton(
                   onPressed: save,
-                  child: Text('save'),
+                  child: const Text('save'),
                 ),
 
                 // cancel button
                 MaterialButton(
                   onPressed: cansel,
-                  child: Text('cancel'),
+                  child: const Text('cancel'),
                 )
               ],
             ));
@@ -94,14 +93,14 @@ class _HomePageState extends State<HomePage> {
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: createNewWorkout,
-          child: Icon(Icons.add),
+          child: const Icon(Icons.add),
         ),
         body: ListView.builder(
           itemCount: value.getWorkoutList().length,
           itemBuilder: (context, index) => ListTile(
             title: Text(value.getWorkoutList()[index].name),
             trailing: IconButton(
-              icon: Icon(Icons.arrow_forward_ios),
+              icon: const Icon(Icons.arrow_forward_ios),
               onPressed: () =>
                   goToWorkoutPage(value.getWorkoutList()[index].name),
             ),

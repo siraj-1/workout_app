@@ -20,10 +20,11 @@ class ExerciseTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: ListTile(
-        title: Text('$exerciseName :'),
-        subtitle: Row(
+    return ListTile(
+      title: Text('$exerciseName :'),
+      subtitle: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Row(
           children: [
             //weight
             Chip(
@@ -49,11 +50,11 @@ class ExerciseTile extends StatelessWidget {
                   style: const TextStyle(color: Colors.white)),
               backgroundColor: Colors.grey,
             ),
+            Checkbox(
+              value: isCompleted,
+              onChanged: (value) => onCheckBoxChanged!(value),
+            ),
           ],
-        ),
-        trailing: Checkbox(
-          value: isCompleted,
-          onChanged: (value) => onCheckBoxChanged!(value),
         ),
       ),
     );
