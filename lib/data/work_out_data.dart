@@ -1,7 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:workout_app/Model/Workout.dart';
+import 'package:workout_app/Model/workout.dart';
 import 'package:workout_app/Model/exercies.dart';
 import 'package:workout_app/data/hive_database.dart';
 

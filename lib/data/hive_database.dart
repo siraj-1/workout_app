@@ -1,5 +1,5 @@
 import 'package:hive/hive.dart';
-import 'package:workout_app/Model/Workout.dart';
+import 'package:workout_app/Model/workout.dart';
 import 'package:workout_app/Model/exercies.dart';
 import 'package:workout_app/datetime/date_time.dart';
 
@@ -10,11 +10,11 @@ class Hivedatabase {
   // check if there is already data stored , it not, record the start date
   bool previousDataExists() {
     if (_myBox.isEmpty) {
-      print('previous data dose Not exist ');
+      // print('previous data dose Not exist ');
       _myBox.put("START_DATE", todaysDateYYYYMMDD());
       return false;
     } else {
-      print('previous data dose exist ');
+      // print('previous data dose exist ');
       return true;
     }
   }
